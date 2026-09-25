@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkZen HRMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="entry-page">
+    <main class="entry-card">
+        <div class="brand-mark">W</div>
+        <p class="eyebrow">WorkZen HRMS</p>
+        <h1>People operations, made simple.</h1>
+        <p class="muted">A focused workspace for attendance, leave, payroll and your team.</p>
+        <a class="button button-primary button-wide" href="login.html">Open WorkZen</a>
+    </main>
+    <script>
+        if (localStorage.getItem('token')) {
+            window.location.replace('dashboard.html');
+        }
+    </script>
+</body>
+</html>

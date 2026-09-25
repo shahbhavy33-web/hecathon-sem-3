@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | WorkZen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="dashboard-page">
+    <header class="topbar">
+        <a class="brand" href="dashboard.html"><span class="brand-mark">W</span> WorkZen</a>
+        <div class="topbar-actions">
+            <span id="user-name" class="user-name"></span>
+            <button class="button button-danger button-small" type="button" data-action="logout">Log out</button>
+        </div>
+    </header>
+
+    <main class="dashboard-shell">
+        <section id="employee-dashboard" class="dashboard-view hidden">
+            <div class="page-heading">
+                <div><p class="eyebrow">Employee workspace</p><h1>Your dashboard</h1><p class="muted">Stay on top of your workday and benefits.</p></div>
+            </div>
+            <div class="metric-grid">
+                <article class="metric-card"><span class="metric-label">Present days</span><strong id="present-count">0</strong><span class="metric-note">This month</span></article>
+                <article class="metric-card accent-warning"><span class="metric-label">Leaves used</span><strong id="leaves-count">0</strong><span class="metric-note">Annual balance</span></article>
+                <article class="metric-card accent-success"><span class="metric-label">Next payroll</span><strong id="next-payroll">Pending</strong><span class="metric-note">Latest update</span></article>
+            </div>
+            <nav class="tabs" aria-label="Employee sections">
+                <button class="tab-button active" type="button" data-tab-group="employee" data-tab="overview">Overview</button>
+                <button class="tab-button" type="button" data-tab-group="employee" data-tab="attendance">Attendance</button>
+                <button class="tab-button" type="button" data-tab-group="employee" data-tab="leave">Leave</button>
+                <button class="tab-button" type="button" data-tab-group="employee" data-tab="payslip">Payslip</button>
+            </nav>
+            <section id="employee-overview-panel" class="tab-panel" data-panel-group="employee" data-panel="overview"><div class="empty-state"><h2>Welcome to your workspace</h2><p>Use the tabs above to record attendance, request leave or review your payslip.</p></div></section>
+            <section id="employee-attendance-panel" class="tab-panel hidden" data-panel-group="employee" data-panel="attendance">
+                <div class="content-grid"><article class="panel"><h2>Mark attendance</h2><form id="attendance-form" class="inline-form"><select id="attendance-status" required><option value="">Select status</option><option value="present">Present</option><option value="absent">Absent</option><option value="half-day">Half day</option></select><button class="button button-primary" type="submit">Mark</button></form></article><article class="panel"><h2>Your attendance log</h2><div id="attendance-log" class="log-list"><p class="muted">Loading...</p></div></article></div>
+            </section>
+            <section id="employee-leave-panel" class="tab-panel hidden" data-panel-group="employee" data-panel="leave">
+                <div class="content-grid"><article class="panel"><h2>Apply for leave</h2><form id="leave-form" class="stack-form"><input type="date" id="leave-start" required><input type="date" id="leave-end" required><select id="leave-type" required><option value="">Select leave type</option><option value="vacation">Vacation</option><option value="sick">Sick leave</option><option value="personal">Personal leave</option></select><button class="button button-primary" type="submit">Apply for leave</button></form></article><article class="panel"><h2>Your leave requests</h2><div id="leave-log" class="log-list"><p class="muted">Loading...</p></div></article></div>
+            </section>
+            <section id="employee-payslip-panel" class="tab-panel hidden" data-panel-group="employee" data-panel="payslip"><article class="panel"><h2>Latest payslip</h2><div id="payslip-content" class="empty-state"><p class="muted">No payslip available yet.</p></div></article></section>
+        </section>
+
+        <section id="admin-dashboard" class="dashboard-view hidden">
+            <div class="page-heading"><div><p class="eyebrow">Administration</p><h1>Team overview</h1><p class="muted">A quick view of your organisation's HR activity.</p></div></div>
+            <div class="metric-grid"><article class="metric-card"><span class="metric-label">Total employees</span><strong id="total-employees">0</strong><span class="metric-note">Active team members</span></article><article class="metric-card accent-success"><span class="metric-label">Today's attendance</span><strong id="today-attendance">0</strong><span class="metric-note">Checked in today</span></article><article class="metric-card accent-warning"><span class="metric-label">Pending leaves</span><strong id="pending-leaves">0</strong><span class="metric-note">Need your review</span></article></div>
+            <nav class="tabs" aria-label="Admin sections"><button class="tab-button active" type="button" data-tab-group="admin" data-tab="employees">Employees</button><button class="tab-button" type="button" data-tab-group="admin" data-tab="leaves">Leave approvals</button><button class="tab-button" type="button" data-tab-group="admin" data-tab="payroll">Payroll</button></nav>
+            <section class="tab-panel panel" data-panel-group="admin" data-panel="employees"><div id="employees-list" class="log-list"><p class="muted">Loading employees...</p></div></section>
+            <section class="tab-panel panel hidden" data-panel-group="admin" data-panel="leaves"><div id="leaves-list" class="log-list"><p class="muted">Loading pending leaves...</p></div></section>
+            <section class="tab-panel panel hidden" data-panel-group="admin" data-panel="payroll"><h2>Generate payroll</h2><form id="payroll-form" class="inline-form"><input type="month" id="payroll-month" required><button class="button button-primary" type="submit">Generate payroll</button></form><p id="payroll-status" class="form-message"></p></section>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>

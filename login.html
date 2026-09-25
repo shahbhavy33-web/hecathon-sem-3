@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign in | WorkZen</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+    <main class="auth-layout">
+        <section class="auth-intro">
+            <a class="brand" href="index.html"><span class="brand-mark">W</span> WorkZen</a>
+            <div>
+                <p class="eyebrow">Smart HR management</p>
+                <h1>Take care of your people, not paperwork.</h1>
+                <p>Bring everyday HR tasks into one calm, connected workspace.</p>
+            </div>
+        </section>
+
+        <section class="auth-card">
+            <div class="auth-toggle" role="tablist">
+                <button class="toggle-button active" type="button" data-auth-view="login">Sign in</button>
+                <button class="toggle-button" type="button" data-auth-view="register">Create account</button>
+            </div>
+
+            <form id="login-form" class="auth-form" data-form-view="login">
+                <div>
+                    <p class="eyebrow">Welcome back</p>
+                    <h2>Sign in to WorkZen</h2>
+                    <p class="muted">Use your work email to continue.</p>
+                </div>
+                <label>Email <input type="email" id="login-email" placeholder="you@company.com" required></label>
+                <label>Password <input type="password" id="login-password" placeholder="Enter your password" required></label>
+                <button class="button button-primary button-wide" type="submit">Sign in</button>
+            </form>
+
+            <form id="register-form" class="auth-form hidden" data-form-view="register">
+                <div>
+                    <p class="eyebrow">Get started</p>
+                    <h2>Create your account</h2>
+                    <p class="muted">Set up your WorkZen profile in seconds.</p>
+                </div>
+                <label>Full name <input type="text" id="register-name" placeholder="Alex Morgan" required></label>
+                <label>Email <input type="email" id="register-email" placeholder="you@company.com" required></label>
+                <label>Password <input type="password" id="register-password" placeholder="Create a password" required></label>
+                <button class="button button-primary button-wide" type="submit">Create account</button>
+            </form>
+            <p id="auth-message" class="form-message" role="status"></p>
+        </section>
+    </main>
+    <script src="app.js"></script>
+</body>
+</html>
